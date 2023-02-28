@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Start">
+            <Grid Background="#FFE5E5E5">
+                <Button Name="Files_selection" Content="Выберите каталог" Click="command_open" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <ProgressBar Minimum="0" Maximum="1000" Name="pbStatus" HorizontalAlignment="Center" Height="10" Margin="0,211,0,0" VerticalAlignment="Top" Width="500"/>
+                <Button Content="Отмена" Click="command_stop" HorizontalAlignment="Left" Margin="5,35,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Images">
+            <Grid Background="#FFE5E5E5">
+                <ListView x:Name="lv_neutral" HorizontalAlignment="Stretch" VerticalAlignment="Top" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                <Image Width="400" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                    <Image.Source>
+                                        <BitmapImage DecodePixelWidth="200" UriSource="{Binding Path}" />
+                                    </Image.Source>
+                                </Image>
+                                <Image Width="400" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                    <Image.Source>
+                                        <BitmapImage DecodePixelWidth="400" UriSource="{Binding PathMosaic}" />
+                                    </Image.Source>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </TabItem>
+
+
+    </TabControl>
+
+</Window>
